@@ -8,6 +8,17 @@ export function getAppointmentsForDay(state, day) {
         return [];
     }
 }
+
+export function getInterviewersForDay(state, day) {
+    //... returns an array of appointments for that day
+    const days = state.days;
+    const dayOfInterest = days.find(d => d.name === day);
+    if (dayOfInterest) {
+        return dayOfInterest.interviewers.map(id => state.interviewers[id]);
+    } else {
+        return [];
+    }
+}
   
 export function getInterview(state, interview) {
     if (!interview) {
