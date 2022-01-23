@@ -44,6 +44,15 @@ export default function Appointment(props) {
     transition(EDIT);
   }  
 
+  useEffect(() => {
+    if (interview && mode === EMPTY) {
+     transition(SHOW);
+    }
+    if (interview === null && mode === SHOW) {
+     transition(EMPTY);
+    }
+  }, [props.interview, transition, mode]);
+
   let student = "";
   if (props.interview) {
     if (props.interview.hasOwnProperty('student')) {
