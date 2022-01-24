@@ -1,11 +1,11 @@
-import React from 'react'
-
+import * as React from 'react';
 import "components/Appointment/styles.scss";
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 import Status from "./Status";
+import Confirm from './Confirm';
 import useVisualMode from 'hooks/useVisualMode';
 
 export default function Appointment(props) {
@@ -44,11 +44,11 @@ export default function Appointment(props) {
     transition(EDIT);
   }  
 
-  useEffect(() => {
-    if (interview && mode === EMPTY) {
+  React.useEffect(() => {
+    if (props.interview && mode === EMPTY) {
      transition(SHOW);
     }
-    if (interview === null && mode === SHOW) {
+    if (props.interview === null && mode === SHOW) {
      transition(EMPTY);
     }
   }, [props.interview, transition, mode]);
@@ -79,7 +79,7 @@ export default function Appointment(props) {
         <Confirm message="Are you sure you would like to delete?" onCancel={back} onConfirm={deleteInterview} />
       )}
       {mode === CREATE && (
-        <Form name={student} interviewers={props.interviewers} onCancel={back} onSave={save}/>
+        <Form name={student} interviewers={props.interviewers} onCancel={back} onSave={save} />
       )}
       {mode === SAVING && (
         <Status message="Saving" />
