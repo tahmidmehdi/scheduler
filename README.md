@@ -21,3 +21,11 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## The Web App
+
+Scheduler lets you create and manage interviews.
+
+## Screenshots
+
+!["Desktop Preview"](https://github.com/tahmidmehdi/scheduler/blob/master/docs/schedulerscreenshot.jpg)
