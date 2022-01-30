@@ -26,7 +26,9 @@ export default function Form(props) {
     }
   
     setError("");
-    props.onSave(name, interviewer);
+    if (props.onSave) {
+      props.onSave(name, interviewer);
+    }
   }  
 
   useEffect(() => {

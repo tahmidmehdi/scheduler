@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios";
 import { render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByText } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -92,9 +92,7 @@ describe("Application", () => {
       target: { value: "Lydia Miller-Jones" }
     });
     fireEvent.click(getByText(appointment, "Save"));
-  })
-
-  import axios from "axios";
+  });
 
   /* test number five */
   it("shows the save error when failing to save an appointment", () => {
